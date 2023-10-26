@@ -1,11 +1,11 @@
 pipeline{
     agent any
-    parameters{
+    // parameters{
 
-    }
-    environment{
+    // }
+    // environment{
 
-    }
+    // }
     stages{
         stage("123"){
             // when{

@@ -1,22 +1,13 @@
-pipeline{
-    agent any
-    // parameters{
+pipeline {
+  agent any
 
-    // }
-    // environment{
-
-    // }
-    stages{
-        stage("123"){
-            // when{
-            //     expression{
-
-            //     }
-            // }
-            steps{
-                echo "Stage 123"
-            }
-        }
-
+  stages {
+    stage('Build') {
+      steps {
+        echo "Before docker-compose up"
+        sh 'docker-compose up'
+        echo "After docker-compose up"
+      }
     }
+  }
 }

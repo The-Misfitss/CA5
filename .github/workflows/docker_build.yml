@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "i200635" ]
+  pull_request:
+    branches: [ "i200635" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag ca4-app:latest
+    - name: Push Docker image
+      run: |
+          docker tag ca4-app:latest jawwadhabib/ca4-app
+          docker push jawwadhabib/ca4-app

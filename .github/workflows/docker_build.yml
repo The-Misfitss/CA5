@@ -20,8 +20,5 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ca4-app:latest
-    - name: Push Docker image
-      run: |
-          docker tag ca4-app:latest jawwadhabib/ca4-app
-          docker push jawwadhabib/ca4-app
+      run: docker build . --file Dockerfile --tag ca5-app:latest
+    

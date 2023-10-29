@@ -26,13 +26,13 @@ pipeline {
 
         stage('Tag Docker Image') {
             steps {
-                sh "docker tag postgresql-db-service:latest $DOCKERHUB_USERNAME/ca4-postgres:latest"
+                sh "docker tag postgresql-db-service:latest $DOCKERHUB_USERNAME/ca5-postgres:latest"
             }
         }
 
         stage('Push Docker Image to Docker Hub') {
             steps {
-                sh "docker push $DOCKERHUB_USERNAME/ca4-postgres:latest"
+                sh "docker push $DOCKERHUB_USERNAME/ca5-postgres:latest"
             }
         }
     }

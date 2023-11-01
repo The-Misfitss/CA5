@@ -34,7 +34,7 @@ pipeline {
                 script {
                     // Run the Docker containers
                     sh "docker run -d -p 5432:5432 --name ca4-postgres jawwadhabib/ca4-postgres:latest"
-                    sh "docker run -d -p 3000:5000 -e DATABASE_URL=${DATABASE_URL} --name ca4-app --link ca4-postgres jawwadhabib/ca4-app:latest"
+                    sh "docker run -d -p 8080:5000 -e DATABASE_URL=${DATABASE_URL} --name ca4-app --link ca4-postgres jawwadhabib/ca4-app:latest"
                 }
             }
         }
